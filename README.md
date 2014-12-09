@@ -45,6 +45,8 @@ public class ExamplePolicy implements BailiffPolicy {
 }
 ```
 
+After creating your policy, be sure to add it to your BailiffBuilder.
+
 You may find this useful: [DevicePolicyManager](http://developer.android.com/reference/android/app/admin/DevicePolicyManager.html)
 
 ## Contributing
