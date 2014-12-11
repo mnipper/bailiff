@@ -1,7 +1,5 @@
 package com.nipperlabs.bailiff.policies;
 
-import com.nipperlabs.bailiff.BailiffPolicy;
-
 import android.annotation.SuppressLint;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;

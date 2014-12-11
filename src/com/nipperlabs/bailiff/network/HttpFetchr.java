@@ -48,9 +48,6 @@ public class HttpFetchr {
         }
     }
     
-    /*
-     * Check if Network is available on device.
-     */
     @SuppressWarnings("deprecation")
     private static boolean isNetworkAvailable(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);

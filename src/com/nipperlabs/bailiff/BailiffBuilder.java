@@ -1,7 +1,10 @@
 package com.nipperlabs.bailiff;
 import java.util.ArrayList;
+import java.util.List;
 
 import android.content.Context;
+
+import com.nipperlabs.bailiff.policies.BailiffPolicy;
 
 public class BailiffBuilder {
     private ArrayList<BailiffPolicy> mPolicies;
@@ -15,6 +18,14 @@ public class BailiffBuilder {
 
     public BailiffBuilder addPolicy(BailiffPolicy policy) {
         mPolicies.add(policy);
+        return this;
+    }
+    
+    public BailiffBuilder addPolicies(List<BailiffPolicy> policies) {
+        for (BailiffPolicy policy : mPolicies) {
+            mPolicies.add(policy);
+        }
+        
         return this;
     }
 

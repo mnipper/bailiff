@@ -1,5 +1,7 @@
 # Bailiff
 
+**WARNING: currently undergoing major api changes**
+
 An Android library for taking action at run-time based on device security settings when DevicePolicyManager Just Don't Quite Fit Your Use Case™
 
 ## Installation
