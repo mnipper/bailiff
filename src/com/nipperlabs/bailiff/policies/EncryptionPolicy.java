@@ -5,6 +5,10 @@ import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.os.Build;
 
+/**
+ * Ensure the current device has full-disk encryption enabled.
+ *
+ */
 public class EncryptionPolicy implements BailiffPolicy {
 
     @SuppressLint("NewApi")

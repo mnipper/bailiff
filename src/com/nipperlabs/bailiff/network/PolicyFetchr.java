@@ -17,6 +17,10 @@ import android.content.Context;
 import com.nipperlabs.bailiff.policies.BailiffPolicy;
 import com.nipperlabs.bailiff.policies.BailiffPolicyFactory;
 
+/**
+ * Obtain all app policies via api.
+ *
+ */
 public class PolicyFetchr {
     private static final String POLICY_NAME_KEY = "name";
     

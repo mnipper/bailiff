@@ -12,6 +12,15 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 
 public class HttpFetchr {
+    /**
+     * Obtain data via get request to url
+     * 
+     * @param urlSpec The url
+     * @param context The current context, for detecting if network is present
+     * @return data obtained from url
+     * @throws IOException error obtaining data from url
+     * @throws HttpException A http code besides 200 (ok) was received from url endpoint
+     */
     public String getUrl(String urlSpec, Context context) throws IOException, HttpException {
         if (!isNetworkAvailable(context)) {
             throw new IOException("Network is not available on this device");

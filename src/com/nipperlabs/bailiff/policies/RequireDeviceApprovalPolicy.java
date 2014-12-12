@@ -2,6 +2,10 @@ package com.nipperlabs.bailiff.policies;
 
 import android.content.Context;
 
+/**
+ * Require device approval via api before passing.
+ *
+ */
 public class RequireDeviceApprovalPolicy implements BailiffPolicy {
 
     @Override
