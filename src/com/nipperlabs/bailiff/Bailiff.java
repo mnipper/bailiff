@@ -1,17 +1,12 @@
 package com.nipperlabs.bailiff;
 
-import java.io.IOException;
-
-import org.apache.http.HttpException;
-import org.json.JSONException;
-
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.util.Log;
 
-import com.nipperlabs.bailiff.network.PolicyFetchr;
+import com.nipperlabs.bailiff.network.GetPolicyTask;
 
 public class Bailiff {
     private static final String TAG = "Bailiff";
@@ -30,20 +25,8 @@ public class Bailiff {
         mEndpointUrl = getMetadataValue(context, ENDPOINT_URL_METADATA_KEY);
         mApiKey = getMetadataValue(context, API_KEY_METADATA_KEY);
         mAppId = getMetadataValue(context, APP_ID_METADATA_KEY);
-        
-        PolicyFetchr policyFetchr = new PolicyFetchr(mEndpointUrl, mApiKey, mAppId);
-        
-        try {
-            policyFetchr.fetch(context);
-        } catch (IOException e) {
-            // TODO fall back to stored policies
-        } catch (HttpException e) {
-            // TODO fall back to stored policies
-        } catch (JSONException e) {
-            // TODO fall back to stored policies
-        }
-        
-        mBailiffBuilder.addPolicies(policyFetchr.getPolicies());
+
+        new GetPolicyTask(context).execute();
     }
     
     public static boolean enforce() {
@@ -58,5 +41,21 @@ public class Bailiff {
             Log.e(TAG, "Could not find value for key " + key + " in AndroidManifest meta-data!");
             return null;
         }
+    }
+    
+    public static String getEndpointUrl() {
+        return mEndpointUrl;
+    }
+    
+    public static String getApiKey() {
+        return mApiKey;
+    }
+    
+    public static String getAppId() {
+        return mAppId;
+    }
+    
+    public static BailiffBuilder getBuilder() {
+        return mBailiffBuilder;
     }
 }
